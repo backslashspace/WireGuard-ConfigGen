@@ -1,5 +1,4 @@
-﻿using ConfigGen.Views;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -17,13 +16,14 @@ namespace ConfigGen
             Pin.CurrentPage = Page.Options;
         }
 
-        
+        //## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
 
         private void NextPage(object sender, RoutedEventArgs e)
         {
             switch (Pin.CurrentPage)
             {
                 case Page.Options:
+                    VerifyOptions();
                     OptionsView.Visibility = Visibility.Collapsed;
                     ConfirmView.Visibility = Visibility.Visible;
                     BackButton.IsEnabled = true;
@@ -55,6 +55,13 @@ namespace ConfigGen
 
                 Pin.CurrentPage = Page.Options;
             }
+        }
+
+        //
+
+        private void VerifyOptions()
+        {
+            
         }
     }
 }

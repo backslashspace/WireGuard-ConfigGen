@@ -21,21 +21,23 @@
 
         <CheckBox x:Name="UseUserServerPrivateKey"
             Margin="20,54,0,0"
-            Tag="PrivateKeyBox"
+            Tag="PrivateKeyBox:false"
             Content="Use existing server Private-Key"
             Height="19" Width="185" 
             VerticalAlignment="Top" HorizontalAlignment="Left"
-            Checked="ActivateUserInputField"
-            Unchecked="ActivateUserInputField"/>
+            Checked="ClearUserInputField"
+            Unchecked="ClearUserInputField"/>
 
         <TextBox x:Name="UseUserServerPrivateKeyValue"
             Text="&lt;privateKey&gt;"
+            Tag="WireGuardKey:false"
             IsEnabled="False"
             Margin="218,53,0,0"
             HorizontalAlignment="Left"
             Width="145" Height="21"
             VerticalAlignment="Top"
-            PreviewMouseDown="TextBox_MouseDown"/>
+            PreviewMouseDown="TextBox_MouseDown"
+            TextChanged="TextBox_TextChanged"/>
 
         <CheckBox x:Name="UsePresharedKeys"
             Margin="20,78,0,0"  
@@ -50,17 +52,19 @@
             Content="Use server KeepAlive"
             Height="19" Width="130" 
             VerticalAlignment="Top" HorizontalAlignment="Left"
-            Checked="ActivateUserInputField"
-            Unchecked="ActivateUserInputField"/>
+            Checked="ClearUserInputField"
+            Unchecked="ClearUserInputField"/>
 
         <TextBox x:Name="ServerKeepAliveValue"
             Text="&lt;time in ms&gt;"
+            Tag="KeepAliveTime:false"
             IsEnabled="False"
             Margin="190,101,0,0"
             HorizontalAlignment="Left"
             Width="135" Height="21"
             VerticalAlignment="Top"
-            PreviewMouseDown="TextBox_MouseDown"/>
+            PreviewMouseDown="TextBox_MouseDown"
+            TextChanged="TextBox_TextChanged"/>
 
         <CheckBox x:Name="ClientKeepAlive"
             Margin="20,126,0,0"
@@ -69,17 +73,19 @@
             Height="19" Width="130"
             IsEnabled="True"
             VerticalAlignment="Top" HorizontalAlignment="Left"
-            Checked="ActivateUserInputField"
-            Unchecked="ActivateUserInputField"/>
+            Checked="ClearUserInputField"
+            Unchecked="ClearUserInputField"/>
 
         <TextBox x:Name="ClientKeepAliveValue"
             Text="&lt;time in ms&gt;"
+            Tag="KeepAliveTime:false"
             IsEnabled="False"
             Margin="190,125,0,0"
             HorizontalAlignment="Left"
             Width="135" Height="21"
             VerticalAlignment="Top"
-            PreviewMouseDown="TextBox_MouseDown"/>
+            PreviewMouseDown="TextBox_MouseDown"
+            TextChanged="TextBox_TextChanged"/>
 
         <TextBlock
             Text="Number of Clients:"
@@ -93,8 +99,9 @@
             HorizontalAlignment="Left"
             Width="135" Height="21"
             VerticalAlignment="Top"
-            Tag="ignore"
-            PreviewMouseDown="TextBox_MouseDown"/>
+            Tag="NumberOfClients:true"
+            PreviewMouseDown="TextBox_MouseDown"
+            TextChanged="TextBox_TextChanged"/>
 
     </Grid>
 </UserControl>
