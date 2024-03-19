@@ -129,7 +129,7 @@
     </Style>
     <!--#endregion-->
 
-    <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+    <Style TargetType="{x:Type CheckBox}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource CheckBox_FocusVisual}"/>
         <Setter Property="Background" Value="#f3f3f3"/>
         <Setter Property="BorderBrush" Value="#626262"/>
@@ -203,7 +203,7 @@
     <!--#endregion-->
 
     <!--#region TextBox -->
-    <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+    <Style TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="#ffffff"/>
         <Setter Property="BorderBrush" Value="#ececec"/>
         <Setter Property="Foreground" Value="#000000"/>

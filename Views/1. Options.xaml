@@ -10,56 +10,91 @@
              BorderBrush="#b4b4b4"
              BorderThickness="1">
 
-    <UserControl.Resources>
-
-        
-
-    </UserControl.Resources>
-
     <Grid x:Name="TheGrid">
 
-        <TextBox Style="{DynamicResource TextBoxStyle}"
-            Text="Text"
-            Margin="217,0,0,0"
+        <TextBlock
+            Text="Select the option you want the generator to perform"
+            ToolTip="Config generator settings"
+            Margin="20,20,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="280"/>
+
+        <CheckBox x:Name="UseUserServerPrivateKey"
+            Margin="20,54,0,0"
+            Tag="PrivateKeyBox"
+            Content="Use existing server Private-Key"
+            Height="19" Width="185" 
+            VerticalAlignment="Top" HorizontalAlignment="Left"
+            Checked="ActivateUserInputField"
+            Unchecked="ActivateUserInputField"/>
+
+        <TextBox x:Name="UseUserServerPrivateKeyValue"
+            Text="&lt;privateKey&gt;"
+            IsEnabled="False"
+            Margin="218,53,0,0"
             HorizontalAlignment="Left"
-            Width="134" Height="21"
-            VerticalAlignment="Center"/>
+            Width="145" Height="21"
+            VerticalAlignment="Top"
+            PreviewMouseDown="TextBox_MouseDown"/>
+
+        <CheckBox x:Name="UsePresharedKeys"
+            Margin="20,78,0,0"  
+            Content="Use pre-shared keys"
+            Height="19" Width="130"
+            IsChecked="True"
+            VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <CheckBox x:Name="ServerKeepAlive"
+            Margin="20,102,0,0"
+            Tag="ServerKeepAlive"
+            Content="Use server KeepAlive"
+            Height="19" Width="130" 
+            VerticalAlignment="Top" HorizontalAlignment="Left"
+            Checked="ActivateUserInputField"
+            Unchecked="ActivateUserInputField"/>
+
+        <TextBox x:Name="ServerKeepAliveValue"
+            Text="&lt;time in ms&gt;"
+            IsEnabled="False"
+            Margin="190,101,0,0"
+            HorizontalAlignment="Left"
+            Width="135" Height="21"
+            VerticalAlignment="Top"
+            PreviewMouseDown="TextBox_MouseDown"/>
+
+        <CheckBox x:Name="ClientKeepAlive"
+            Margin="20,126,0,0"
+            Tag="ClientKeepAlive"
+            Content="Use client KeepAlive"
+            Height="19" Width="130"
+            IsEnabled="True"
+            VerticalAlignment="Top" HorizontalAlignment="Left"
+            Checked="ActivateUserInputField"
+            Unchecked="ActivateUserInputField"/>
+
+        <TextBox x:Name="ClientKeepAliveValue"
+            Text="&lt;time in ms&gt;"
+            IsEnabled="False"
+            Margin="190,125,0,0"
+            HorizontalAlignment="Left"
+            Width="135" Height="21"
+            VerticalAlignment="Top"
+            PreviewMouseDown="TextBox_MouseDown"/>
 
         <TextBlock
-            Text="Settings"
-            ToolTip="DDU  UM)"
-            FontWeight="SemiBold"
-            Margin="20,10,0,0"
+            Text="Number of Clients:"
+            Margin="39,151,0,0"
             VerticalAlignment="Top" HorizontalAlignment="Left" 
-            Height="28" Width="182"/>
+            Height="18" Width="105"/>
 
-        <CheckBox x:Name="Test" Style="{DynamicResource CheckBoxStyle}"
-            Margin="20,54,0,0"  
-            Content="test"
-            Height="19" Width="208" 
-            VerticalAlignment="Top" HorizontalAlignment="Left"/>
-
-        <CheckBox Style="{DynamicResource CheckBoxStyle}"
-            Margin="20,102,0,0"  
-            Content="test"
-            IsChecked="True"
-            Height="19" Width="208" 
-            VerticalAlignment="Top" HorizontalAlignment="Left"/>
-
-        <CheckBox Style="{DynamicResource CheckBoxStyle}"
-            Margin="20,78,0,0"  
-            Content="test"
-            Height="19" Width="208"
-            IsChecked="True"
-            IsEnabled="False"
-            VerticalAlignment="Top" HorizontalAlignment="Left"/>
-
-        <CheckBox Style="{DynamicResource CheckBoxStyle}"
-            Margin="20,126,0,0"  
-            Content="gß|"
-            Height="19" Width="208"
-            IsEnabled="False"
-            VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox x:Name="NumberOfClients"
+            Text="5"
+            Margin="190,149,0,0"
+            HorizontalAlignment="Left"
+            Width="135" Height="21"
+            VerticalAlignment="Top"
+            Tag="ignore"
+            PreviewMouseDown="TextBox_MouseDown"/>
 
     </Grid>
 </UserControl>
