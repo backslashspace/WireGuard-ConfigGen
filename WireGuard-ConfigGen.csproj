@@ -63,8 +63,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UI-Static.cs" />
     <Compile Include="Views\1. Options.xaml.cs">
       <DependentUpon>1. Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\2. Confim.xaml.cs">
+      <DependentUpon>2. Confim.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\3. Working.xaml.cs">
+      <DependentUpon>3. Working.xaml</DependentUpon>
     </Compile>
     <Page Include="App\src_Dictionary.xaml">
       <SubType>Designer</SubType>
@@ -84,6 +91,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\1. Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\2. Confim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\3. Working.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

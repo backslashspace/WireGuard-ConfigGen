@@ -15,7 +15,12 @@
 
     <Grid>
 
-        <controls:Options  x:Name="OverviewGrid" Visibility="Visible" Margin="11,11,11,37"/>
+        <Grid Margin="11,11,11,37">
+            <controls:Options x:Name="OptionsView" Visibility="Visible"/>
+            <controls:Confirm x:Name="ConfirmView" Visibility="Collapsed"/>
+            <controls:Working x:Name="WorkingView" Visibility="Collapsed"/>
+
+        </Grid>
 
         <Button x:Name="BackButton"
             Content="Back" 
@@ -25,7 +30,7 @@
             Width="73" Height="21"
             HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
 
-        <Button x:Name="NxtButton"
+        <Button x:Name="NextButton"
             Content="Next"
             Margin="0,0,11,8"
             Click="NextPage"
