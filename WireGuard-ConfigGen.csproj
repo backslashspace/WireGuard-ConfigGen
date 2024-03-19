@@ -73,6 +73,7 @@
     <Compile Include="Views\3. Working.xaml.cs">
       <DependentUpon>3. Working.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xProcess\Process.cs" />
     <Page Include="App\src_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="shell32_38.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="notes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

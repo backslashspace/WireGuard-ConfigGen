@@ -103,7 +103,7 @@
                 <ControlTemplate TargetType="{x:Type ToolTip}">
                     <Border CornerRadius="4" Background="#f9f9f9" BorderBrush="#e5e5e5" BorderThickness="1">
                         <ContentPresenter
-                            Margin="6,2,6,5"
+                            Margin="7,0,7,2"
                             HorizontalAlignment="Center" VerticalAlignment="Center"
                             TextBlock.Foreground="#404040"
                             TextBlock.FontSize="12" 
@@ -232,6 +232,42 @@
                             <Setter Property="Height" TargetName="accent" Value="2"/>
                             <Setter Property="Background" TargetName="accent" Value="#0067c0"/>
                             <Setter Property="Margin" TargetName="accent" Value="-1,0,-1,-1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region ProgressBar -->
+    <Style x:Key="ProgressBarStyle" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <Grid x:Name="TemplateRoot">
+                        <Border Background="#e6e6e6" BorderBrush="#bcbcbc" BorderThickness="1"/>
+                        <Rectangle x:Name="PART_Track"/>
+                        <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left" Margin="1">
+                            <Rectangle x:Name="Animation" Fill="#06b025" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="LayoutTransform" TargetName="TemplateRoot">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90"/>
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
