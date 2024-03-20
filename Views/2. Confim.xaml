@@ -12,9 +12,20 @@
 
     <Grid x:Name="Griddd">
 
+        <TextBlock
+            Text="Wireguard tools"
+            ToolTip="Config generator settings"
+            Margin="35,20,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="86"/>
 
-
-
+        <Image x:Name="WGToolsStatusIcon"
+            Source="/icons/imageres_98.ico"
+            Margin="16,21,0,0"
+            Height="16" Width="16"
+            Visibility="Visible"
+            RenderOptions.BitmapScalingMode="HighQuality" 
+            VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
     </Grid>
 </UserControl>

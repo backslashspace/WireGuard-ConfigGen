@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Threading;
 
 namespace ConfigGen
@@ -23,7 +24,7 @@ namespace ConfigGen
             switch (Pin.CurrentPage)
             {
                 case Page.Options:
-                    VerifyOptions();
+                    if (!VerifyOptions()) { return; }
                     OptionsView.Visibility = Visibility.Collapsed;
                     ConfirmView.Visibility = Visibility.Visible;
                     BackButton.IsEnabled = true;
@@ -59,9 +60,59 @@ namespace ConfigGen
 
         //
 
-        private void VerifyOptions()
+        private Boolean VerifyOptions()
         {
-            
+            Boolean valid = true;
+
+            if ((Boolean)OptionsView.UseUserServerPrivateKey.IsChecked)
+            {
+                if (OptionsView.UseUserServerPrivateKeyValue.Text.Length != 44)
+                {
+                    valid = false;
+
+                    goto SKIP;
+                }
+            }
+
+            if ((Boolean)OptionsView.ServerKeepAlive.IsChecked)
+            {
+                if (!UInt16.TryParse(OptionsView.ServerKeepAliveValue.Text, out _))
+                {
+                    valid = false;
+
+                    goto SKIP;
+                }
+            }
+
+            if ((Boolean)OptionsView.ClientKeepAlive.IsChecked)
+            {
+                if (!UInt16.TryParse(OptionsView.ClientKeepAliveValue.Text, out _))
+                {
+                    valid = false;
+
+                    goto SKIP;
+                }
+            }
+
+            if (!UInt32.TryParse(OptionsView.NumberOfClients.Text, out _))
+            {
+                valid = false;
+            }
+
+        SKIP:;
+
+            if (!valid)
+            {
+                DialogResult result = System.Windows.Forms.MessageBox.Show(
+                "At least one field was invalid,\nplease make sure the input has the correct format.",
+                "WG-Gen",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+                return false;
+            }
+
+            return true;
         }
     }
 }

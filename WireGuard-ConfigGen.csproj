@@ -47,6 +47,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -135,6 +136,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\imageres_157.ico" />
+    <Resource Include="icons\imageres_98.ico" />
+    <Resource Include="icons\shell32_16739.ico" />
+    <Resource Include="icons\shell32_16805.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
