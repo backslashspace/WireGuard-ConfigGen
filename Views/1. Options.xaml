@@ -37,6 +37,7 @@
             HorizontalAlignment="Left"
             Width="145" Height="21"
             VerticalAlignment="Top"
+            IsKeyboardFocusedChanged="TextBoxFocusChanged"
             TextChanged="TextChanged_ValidateNew"/>
 
         <CheckBox x:Name="UsePresharedKeys"
@@ -64,6 +65,7 @@
             HorizontalAlignment="Left"
             Width="135" Height="21"
             VerticalAlignment="Top"
+            IsKeyboardFocusedChanged="TextBoxFocusChanged"
             TextChanged="TextChanged_ValidateNew"/>
 
         <CheckBox x:Name="ClientKeepAlive"

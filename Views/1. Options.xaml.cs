@@ -61,7 +61,17 @@ namespace ConfigGen.Views
 
             void SetFrontColor(ref TextBox textBox)
             {
-                textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+                String tagPart;
+                try { tagPart = textBox.Tag.ToString().Split(':')[1]; } catch { return; }
+
+                if (!(Boolean)checkBox.IsChecked || Boolean.Parse(tagPart))
+                {
+                    textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+                }
+                else
+                {
+                    textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#747474"));
+                }
             }
         }
 
@@ -105,7 +115,14 @@ namespace ConfigGen.Views
             }
             else if (!textBox.IsKeyboardFocused && !Boolean.Parse(tagParts[1]))
             {
-                textBox.Text = "<time in ms>";
+                if (tagParts[0] == "WireGuardKey")
+                {
+                    textBox.Text = "<privateKey>";
+                }
+                else
+                {
+                    textBox.Text = "<time in ms>";
+                }
 
                 textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#747474"));
             }
