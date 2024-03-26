@@ -74,6 +74,7 @@
     <Compile Include="Views\3. Working.xaml.cs">
       <DependentUpon>3. Working.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WireGuard-KeyTools.cs" />
     <Compile Include="xProcess\Process.cs" />
     <Page Include="App\src_Dictionary.xaml">
       <SubType>Designer</SubType>
@@ -142,6 +143,11 @@
     <Resource Include="icons\imageres_98.ico" />
     <Resource Include="icons\shell32_16739.ico" />
     <Resource Include="icons\shell32_16805.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wg_Curve.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

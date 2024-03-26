@@ -27,5 +27,19 @@
             RenderOptions.BitmapScalingMode="HighQuality" 
             VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
+        <TextBlock x:Name="WireGuardToolPath"
+            Text=""
+            ToolTip="wg.exe path"
+            Margin="17,40,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="360"/>
+
+        <Button x:Name="ToolSeletorButton"
+            Content="Select ➡️"
+            Margin="126,18,0,0"
+            Click="SelectToolExe"
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Width="67" Height="22"/>
+
     </Grid>
 </UserControl>

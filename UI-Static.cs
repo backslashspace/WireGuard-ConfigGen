@@ -1,4 +1,5 @@
-﻿using System.Windows.Threading;
+﻿using System;
+using System.Windows.Threading;
 
 namespace ConfigGen
 {
@@ -7,6 +8,8 @@ namespace ConfigGen
         internal static MainWindow MainWindow;
 
         internal static Dispatcher Dispatcher;
+
+        internal static String WGToolPath;
 
         internal static Page CurrentPage;
     }
