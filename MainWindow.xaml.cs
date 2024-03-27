@@ -30,6 +30,8 @@ namespace ConfigGen
                     ConfirmView.Visibility = Visibility.Visible;
                     BackButton.IsEnabled = true;
                     Pin.CurrentPage = Page.Confirm;
+                    ConfirmView.Load();
+                    NextButton.Content = "Build";
                     break;
 
                 case Page.Confirm:
@@ -54,6 +56,8 @@ namespace ConfigGen
                 ConfirmView.Visibility = Visibility.Collapsed;
 
                 BackButton.IsEnabled = false;
+
+                NextButton.Content = "Next";
 
                 Pin.CurrentPage = Page.Options;
             }

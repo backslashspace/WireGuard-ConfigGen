@@ -9,8 +9,6 @@ namespace ConfigGen
 
         internal static Dispatcher Dispatcher;
 
-        internal static String WGToolPath;
-
         internal static Page CurrentPage;
     }
 

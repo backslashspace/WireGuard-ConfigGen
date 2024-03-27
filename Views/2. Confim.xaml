@@ -13,33 +13,101 @@
     <Grid x:Name="Griddd">
 
         <TextBlock
-            Text="Wireguard tools"
-            ToolTip="Config generator settings"
-            Margin="35,20,0,0"
+            Text="Dependencies:"
+            Margin="25,21,0,0"
+            FontWeight="SemiBold"
             VerticalAlignment="Top" HorizontalAlignment="Left" 
-            Height="18" Width="86"/>
+            Height="18" Width="80"/>
 
         <Image x:Name="WGToolsStatusIcon"
             Source="/icons/imageres_98.ico"
-            Margin="16,21,0,0"
+            Margin="108,22,0,0"
             Height="16" Width="16"
             Visibility="Visible"
             RenderOptions.BitmapScalingMode="HighQuality" 
             VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-        <TextBlock x:Name="WireGuardToolPath"
+        <TextBlock x:Name="DependenciesValue"
+            Text="value"
+            Foreground="#747474"
+            Margin="0,21,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Center" 
+            Height="18" Width="120"/>
+
+        <TextBlock x:Name="ErrorMessage"
             Text=""
-            ToolTip="wg.exe path"
-            Margin="17,40,0,0"
+            Foreground="#747474"
+            Margin="25,39,0,0"
             VerticalAlignment="Top" HorizontalAlignment="Left" 
             Height="18" Width="360"/>
 
-        <Button x:Name="ToolSeletorButton"
-            Content="Select ➡️"
-            Margin="126,18,0,0"
-            Click="SelectToolExe"
-            HorizontalAlignment="Left" VerticalAlignment="Top"
-            Width="67" Height="22"/>
+        <TextBlock
+            Text="Mode:"
+            FontWeight="SemiBold"
+            Margin="25,57,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="35"/>
+
+        <TextBlock x:Name="Mode"
+            Text="value"
+            Margin="70,57,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <TextBlock
+            Text="PSK:"
+            FontWeight="SemiBold"
+            Margin="25,80,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="35"/>
+
+        <TextBlock x:Name="PSK"
+            Text="value"
+            Margin="70,80,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <TextBlock
+            Text="KeepAlive Server:"
+            FontWeight="SemiBold"
+            Margin="25,103,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="96"/>
+
+        <TextBlock x:Name="ServerKeepAlive"
+            Text="value"
+            Margin="126,103,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <TextBlock
+            Text="KeepAlive Client:"
+            FontWeight="SemiBold"
+            Margin="25,126,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="96"/>
+
+        <TextBlock x:Name="ClientKeepAlive"
+            Text="value"
+            Margin="126,126,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <TextBlock
+            Text="Clients:"
+            FontWeight="SemiBold"
+            Margin="25,149,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="40"/>
+
+        <TextBlock x:Name="NumOfCLients"
+            Text="value"
+            Margin="70,149,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <Button
+            Content="Test" Margin="223,177,10,10" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

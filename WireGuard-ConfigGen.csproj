@@ -45,6 +45,9 @@
     <ApplicationIcon>shell32_38.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BSS.Encryption">
+      <HintPath>libs\BSS.Encryption.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -64,6 +67,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Tools\extractDeps.cs" />
+    <Compile Include="Tools\HashValidator.cs" />
     <Compile Include="UI-Static.cs" />
     <Compile Include="Views\1. Options.xaml.cs">
       <DependentUpon>1. Options.xaml</DependentUpon>
@@ -74,8 +79,7 @@
     <Compile Include="Views\3. Working.xaml.cs">
       <DependentUpon>3. Working.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WireGuard-KeyTools.cs" />
-    <Compile Include="xProcess\Process.cs" />
+    <Compile Include="Tools\WireGuard-KeyTools.cs" />
     <Page Include="App\src_Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,9 +149,9 @@
     <Resource Include="icons\shell32_16805.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="wg_Curve.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="libs\BSS.Encryption.dll" />
+    <EmbeddedResource Include="libs\curve.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
