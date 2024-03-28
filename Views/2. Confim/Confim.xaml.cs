@@ -23,10 +23,12 @@ namespace ConfigGen.Views
             {
                 Curve_DLL = DependencyState.Missing;
                 Enc_DLL = DependencyState.Missing;
+                BC_FIPS_DLL = DependencyState.Missing;
             }
 
             internal DependencyState Curve_DLL;
             internal DependencyState Enc_DLL;
+            internal DependencyState BC_FIPS_DLL;
         }
 
         //
@@ -92,6 +94,22 @@ namespace ConfigGen.Views
             
             SKIPENC:
 
+                if (File.Exists("bc-fips-1.0.2.dll"))
+                {
+                    if (xHash.CompareHash("bc-fips-1.0.2.dll", xHash.KnownHashes.BC_FIPS_DLL))
+                    {
+                        dependencies.BC_FIPS_DLL = DependencyState.Valid;
+                        goto BCDLL;
+                    }
+
+                    dependencies.BC_FIPS_DLL = DependencyState.WasInvalid;
+                }
+
+                xExtractor.SaveResourceToDisk($"{directory}\\bc-fips-1.0.2.dll", "ConfigGen.libs.bc-fips-1.0.2.dll", Assembly.GetExecutingAssembly());
+                dependencies.BC_FIPS_DLL = DependencyState.WasMissing;
+
+            BCDLL:
+
                 WGToolsStatusIcon.Source = new BitmapImage(new Uri(@"\icons\imageres_157.ico", UriKind.Relative));
                 WGToolsStatusIcon.Margin = new Thickness(WGToolsStatusIcon.Margin.Left - 18, WGToolsStatusIcon.Margin.Top - 18, 0, 0);
                 WGToolsStatusIcon.Height = 34;
@@ -109,15 +127,15 @@ namespace ConfigGen.Views
 
         private void SetUI(ref Dependencies dependencies)
         {
-            if (dependencies.Curve_DLL == DependencyState.Missing || dependencies.Enc_DLL == DependencyState.Missing)
+            if (dependencies.Curve_DLL == DependencyState.Missing || dependencies.Enc_DLL == DependencyState.Missing || dependencies.BC_FIPS_DLL == DependencyState.Missing)
             {
                 DependenciesValue.Text = "error";
             }
-            else if (dependencies.Curve_DLL == DependencyState.WasInvalid || dependencies.Enc_DLL == DependencyState.WasInvalid)
+            else if (dependencies.Curve_DLL == DependencyState.WasInvalid || dependencies.Enc_DLL == DependencyState.WasInvalid || dependencies.BC_FIPS_DLL == DependencyState.WasInvalid)
             {
                 DependenciesValue.Text = "Re-Extracted files";
             }
-            else if (dependencies.Curve_DLL == DependencyState.WasMissing || dependencies.Enc_DLL == DependencyState.WasMissing)
+            else if (dependencies.Curve_DLL == DependencyState.WasMissing || dependencies.Enc_DLL == DependencyState.WasMissing || dependencies.BC_FIPS_DLL == DependencyState.WasMissing)
             {
                 DependenciesValue.Text = "Extracted files";
             }
@@ -128,7 +146,7 @@ namespace ConfigGen.Views
 
             //
 
-            if ((Boolean)Pin.MainWindow.OptionsView.UseUserServerPrivateKey.IsChecked)
+            if ((Boolean)Pin.MainWindow.ServerOptionsView.UseUserServerPrivateKey.IsChecked)
             {
                 Mode.Text = "append";
             }
@@ -139,7 +157,7 @@ namespace ConfigGen.Views
 
             //
 
-            if ((Boolean)Pin.MainWindow.OptionsView.UsePresharedKeys.IsChecked)
+            if ((Boolean)Pin.MainWindow.ServerOptionsView.UsePresharedKeys.IsChecked)
             {
                 PSK.Text = "yes";
             }
@@ -150,29 +168,29 @@ namespace ConfigGen.Views
 
             //
 
-            if ((Boolean)Pin.MainWindow.OptionsView.ServerKeepAlive.IsChecked)
-            {
-                ServerKeepAlive.Text = Pin.MainWindow.OptionsView.ServerKeepAliveValue.Text + "ms";
-            }
-            else
-            {
-                ServerKeepAlive.Text = "no";
-            }
+            //if ((Boolean)Pin.MainWindow.OptionsView.ServerKeepAlive.IsChecked)
+            //{
+            //    ServerKeepAlive.Text = Pin.MainWindow.OptionsView.ServerKeepAliveValue.Text + "ms";
+            //}
+            //else
+            //{
+            //    ServerKeepAlive.Text = "no";
+            //}
 
             //
 
-            if ((Boolean)Pin.MainWindow.OptionsView.ClientKeepAlive.IsChecked)
-            {
-                ClientKeepAlive.Text = Pin.MainWindow.OptionsView.ClientKeepAliveValue.Text + "ms";
-            }
-            else
-            {
-                ClientKeepAlive.Text = "no";
-            }
+            //if ((Boolean)Pin.MainWindow.OptionsView.ClientKeepAlive.IsChecked)
+            //{
+            //    ClientKeepAlive.Text = Pin.MainWindow.OptionsView.ClientKeepAliveValue.Text + "ms";
+            //}
+            //else
+            //{
+            //    ClientKeepAlive.Text = "no";
+            //}
 
             //
 
-            NumOfCLients.Text = Pin.MainWindow.OptionsView.NumberOfClients.Text;
+            NumOfCLients.Text = Pin.MainWindow.ServerOptionsView.NumberOfClients.Text;
         }
     }
 }

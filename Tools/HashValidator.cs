@@ -10,6 +10,7 @@ namespace ConfigGen
         {
             internal const String Curve_DLL = "dbe7a98f5f5c5cad194aee5233cb5bec5b0f44a32494241ac2d196b83f071d9f";
             internal const String Enc_DLL = "7a359eb885051da2a478cbdc952416272c8899082b6fad47eee7c4ec27ca9c46";
+            internal const String BC_FIPS_DLL = "8911c42df2fc915c3c63aace0defaf2b1063fea5f0e335e330c1b46ff7392a82";
         }
 
         internal static Boolean CompareHash(String filePath, String hash)

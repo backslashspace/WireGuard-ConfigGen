@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfigGen.Views;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Forms;
@@ -25,8 +26,8 @@ namespace ConfigGen
             switch (Pin.CurrentPage)
             {
                 case Page.Options:
-                    if (!VerifyOptions()) { return; }
-                    OptionsView.Visibility = Visibility.Collapsed;
+                    //if (!VerifyOptions()) { return; }
+                    ServerOptionsView.Visibility = Visibility.Collapsed;
                     ConfirmView.Visibility = Visibility.Visible;
                     BackButton.IsEnabled = true;
                     Pin.CurrentPage = Page.Confirm;
@@ -51,7 +52,7 @@ namespace ConfigGen
         {
             if (Pin.CurrentPage == Page.Confirm)
             {
-                OptionsView.Visibility = Visibility.Visible;
+                ServerOptionsView.Visibility = Visibility.Visible;
                 ConfirmView.Visibility = Visibility.Collapsed;
 
                 BackButton.IsEnabled = false;
@@ -64,59 +65,59 @@ namespace ConfigGen
 
         //
 
-        private Boolean VerifyOptions()
-        {
-            Boolean valid = true;
-
-            if ((Boolean)OptionsView.UseUserServerPrivateKey.IsChecked)
-            {
-                if (OptionsView.UseUserServerPrivateKeyValue.Text.Length != 44)
-                {
-                    valid = false;
-
-                    goto SKIP;
-                }
-            }
-
-            if ((Boolean)OptionsView.ServerKeepAlive.IsChecked)
-            {
-                if (!UInt16.TryParse(OptionsView.ServerKeepAliveValue.Text, out _))
-                {
-                    valid = false;
-
-                    goto SKIP;
-                }
-            }
-
-            if ((Boolean)OptionsView.ClientKeepAlive.IsChecked)
-            {
-                if (!UInt16.TryParse(OptionsView.ClientKeepAliveValue.Text, out _))
-                {
-                    valid = false;
-
-                    goto SKIP;
-                }
-            }
-
-            if (!UInt32.TryParse(OptionsView.NumberOfClients.Text, out _))
-            {
-                valid = false;
-            }
-
-        SKIP:;
-
-            if (!valid)
-            {
-                DialogResult result = System.Windows.Forms.MessageBox.Show(
-                "At least one field was invalid,\nplease make sure the input has the correct format.",
-                "WG-Gen",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-
-                return false;
-            }
-
-            return true;
-        }
+        //private Boolean VerifyOptions()
+        //{
+        //    Boolean valid = true;
+        //
+        //    if ((Boolean)OptionsView.UseUserServerPrivateKey.IsChecked)
+        //    {
+        //        if (OptionsView.UseUserServerPrivateKeyValue.Text.Length != 44)
+        //        {
+        //            valid = false;
+        //
+        //            goto SKIP;
+        //        }
+        //    }
+        //
+        //    if ((Boolean)OptionsView.ServerKeepAlive.IsChecked)
+        //    {
+        //        if (!UInt16.TryParse(OptionsView.ServerKeepAliveValue.Text, out _))
+        //        {
+        //            valid = false;
+        //
+        //            goto SKIP;
+        //        }
+        //    }
+        //
+        //    if ((Boolean)OptionsView.ClientKeepAlive.IsChecked)
+        //    {
+        //        if (!UInt16.TryParse(OptionsView.ClientKeepAliveValue.Text, out _))
+        //        {
+        //            valid = false;
+        //
+        //            goto SKIP;
+        //        }
+        //    }
+        //
+        //    if (!UInt32.TryParse(OptionsView.NumberOfClients.Text, out _))
+        //    {
+        //        valid = false;
+        //    }
+        //
+        //SKIP:;
+        //
+        //    if (!valid)
+        //    {
+        //        DialogResult result = System.Windows.Forms.MessageBox.Show(
+        //        "At least one field was invalid,\nplease make sure the input has the correct format.",
+        //        "WG-Gen",
+        //        MessageBoxButtons.OK,
+        //        MessageBoxIcon.Warning);
+        //
+        //        return false;
+        //    }
+        //
+        //    return true;
+        //}
     }
 }

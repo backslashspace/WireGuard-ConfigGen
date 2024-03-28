@@ -45,6 +45,9 @@
     <ApplicationIcon>shell32_38.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="bc-fips-1.0.2">
+      <HintPath>libs\bc-fips-1.0.2.dll</HintPath>
+    </Reference>
     <Reference Include="BSS.Encryption">
       <HintPath>libs\BSS.Encryption.dll</HintPath>
     </Reference>
@@ -70,12 +73,17 @@
     <Compile Include="Tools\AssetExtractor.cs" />
     <Compile Include="Tools\HashValidator.cs" />
     <Compile Include="UI-Static.cs" />
-    <Compile Include="Views\1. Options\Options.xaml.cs">
-      <DependentUpon>Options.xaml</DependentUpon>
+    <Compile Include="Views\1. Options\ClientOptions.xaml.cs">
+      <DependentUpon>ClientOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\1. Options\ServerOptions.xaml.cs">
+      <DependentUpon>ServerOptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\2. Confim\Confim.xaml.cs">
       <DependentUpon>Confim.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\3. Working\2. ConfigWriter.cs" />
+    <Compile Include="Views\3. Working\1. ConfigBuilder.cs" />
     <Compile Include="Views\3. Working\Working.xaml.cs">
       <DependentUpon>Working.xaml</DependentUpon>
     </Compile>
@@ -97,7 +105,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\1. Options\Options.xaml">
+    <Page Include="Views\1. Options\ClientOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\1. Options\ServerOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +164,8 @@
     <EmbeddedResource Include="libs\BSS.Encryption.dll" />
     <EmbeddedResource Include="libs\curve.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="libs\bc-fips-1.0.2.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
