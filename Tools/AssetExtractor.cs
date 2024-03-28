@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 
 namespace ConfigGen
@@ -8,7 +7,7 @@ namespace ConfigGen
     ///<summary>Extracts embedded files.</summary>
     internal static partial class xExtractor
     {
-        internal static void SaveResourceToDisk(String filePath, String assemblyResourcePath, Assembly assembly, Boolean useAbsoluteResourcePath = false)
+        internal static void SaveResourceToDisk(String filePath, String assemblyResourcePath, Assembly assembly)
         {
             if (filePath == null)
             {
@@ -26,13 +25,6 @@ namespace ConfigGen
             }
 
             (String path, String fileName) = ValidatingPathSplit(ref filePath);
-
-            if (!useAbsoluteResourcePath)
-            {
-                GetTopLevelAssemblyNamespace(ref assembly, out String _namespace);
-
-                assemblyResourcePath = $"{_namespace}.{assemblyResourcePath}";
-            }
 
             ValidateResource(ref assemblyResourcePath, ref assembly);
 
@@ -95,23 +87,6 @@ namespace ConfigGen
             }
 
             throw new InvalidDataException("resource not found in assembly");
-        }
-
-        private static Boolean GetTopLevelAssemblyNamespace(ref Assembly assembly, out String TLNamespace)
-        {
-            try
-            {
-                String _namespace = assembly.DefinedTypes.First().FullName;
-
-                TLNamespace = _namespace.Split('.')[0];
-
-                return true;
-            }
-            catch
-            {
-                TLNamespace = null;
-                return false;
-            }
         }
 
         private static String[] GetResourceNames(ref Assembly assembly, Boolean stripeTopLevelNamespace = false)

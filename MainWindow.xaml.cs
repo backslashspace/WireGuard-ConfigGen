@@ -30,7 +30,6 @@ namespace ConfigGen
                     ConfirmView.Visibility = Visibility.Visible;
                     BackButton.IsEnabled = true;
                     Pin.CurrentPage = Page.Confirm;
-                    ConfirmView.Load();
                     NextButton.Content = "Build";
                     break;
 

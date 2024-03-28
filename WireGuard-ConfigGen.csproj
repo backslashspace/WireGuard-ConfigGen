@@ -67,17 +67,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Tools\extractDeps.cs" />
+    <Compile Include="Tools\AssetExtractor.cs" />
     <Compile Include="Tools\HashValidator.cs" />
     <Compile Include="UI-Static.cs" />
-    <Compile Include="Views\1. Options.xaml.cs">
-      <DependentUpon>1. Options.xaml</DependentUpon>
+    <Compile Include="Views\1. Options\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\2. Confim.xaml.cs">
-      <DependentUpon>2. Confim.xaml</DependentUpon>
+    <Compile Include="Views\2. Confim\Confim.xaml.cs">
+      <DependentUpon>Confim.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\3. Working.xaml.cs">
-      <DependentUpon>3. Working.xaml</DependentUpon>
+    <Compile Include="Views\3. Working\Working.xaml.cs">
+      <DependentUpon>Working.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools\WireGuard-KeyTools.cs" />
     <Page Include="App\src_Dictionary.xaml">
@@ -97,15 +97,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\1. Options.xaml">
+    <Page Include="Views\1. Options\Options.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\2. Confim.xaml">
+    <Page Include="Views\2. Confim\Confim.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\3. Working.xaml">
+    <Page Include="Views\3. Working\Working.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

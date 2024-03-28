@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="ConfigGen.Views.Confirm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             
+             d:Height="209" d:Width="378"
+             Background="#ffffff"
+             BorderBrush="#b4b4b4"
+             BorderThickness="1">
+
+    <Grid>
+
+        <TextBlock
+            Text="Dependencies:"
+            Margin="25,21,0,0"
+            FontWeight="SemiBold"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="80"/>
+
+        <Image x:Name="WGToolsStatusIcon"
+            Source="/icons/imageres_98.ico"
+            Margin="108,22,0,0"
+            Height="16" Width="16"
+            Visibility="Visible"
+            RenderOptions.BitmapScalingMode="HighQuality" 
+            VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <TextBlock x:Name="DependenciesValue"
+            Text="value"
+            Foreground="#747474"
+            Margin="0,21,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Center" 
+            Height="18" Width="120"/>
+
+        <TextBlock x:Name="ErrorMessage"
+            Text=""
+            Foreground="#747474"
+            Margin="25,39,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="360"/>
+
+        <TextBlock
+            Text="Mode:"
+            FontWeight="SemiBold"
+            Margin="25,57,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="35"/>
+
+        <TextBlock x:Name="Mode"
+            Text="value"
+            Margin="70,57,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <TextBlock
+            Text="PSK:"
+            FontWeight="SemiBold"
+            Margin="25,80,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="35"/>
+
+        <TextBlock x:Name="PSK"
+            Text="value"
+            Margin="70,80,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <TextBlock
+            Text="KeepAlive Server:"
+            FontWeight="SemiBold"
+            Margin="25,103,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="96"/>
+
+        <TextBlock x:Name="ServerKeepAlive"
+            Text="value"
+            Margin="126,103,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <TextBlock
+            Text="KeepAlive Client:"
+            FontWeight="SemiBold"
+            Margin="25,126,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="96"/>
+
+        <TextBlock x:Name="ClientKeepAlive"
+            Text="value"
+            Margin="126,126,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+        <TextBlock
+            Text="Clients:"
+            FontWeight="SemiBold"
+            Margin="25,149,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="40"/>
+
+        <TextBlock x:Name="NumOfCLients"
+            Text="value"
+            Margin="70,149,0,0"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="18" Width="64"/>
+
+    </Grid>
+</UserControl>
